@@ -23,7 +23,7 @@ const HomePage = () => {
         </div>
 
         {/* Tagline */}
-        <div className="font-extralight text-lg md:text-4xl text-neutral-200 ">
+        <div className="font-extralight text-lg md:text-3xl text-neutral-200  ">
           Streamline your programming workflow with everything you need in one app.
         </div>
 

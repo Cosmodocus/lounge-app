@@ -11,7 +11,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{ts,tsx}", // Added this line from the original config
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {

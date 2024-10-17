@@ -33,7 +33,7 @@ const Feed = () => {
           as="button"
           className="bg-black text-white text-lg md:text-xl px-6 py-3 flex items-center space-x-2 transition hover:bg-gray-800"
         >
-          Share a Post
+          Show me the Latest Posts
         </HoverBorderGradient>
       </div>
     </motion.div>

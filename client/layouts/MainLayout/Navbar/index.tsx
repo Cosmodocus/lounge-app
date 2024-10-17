@@ -8,7 +8,7 @@ const Navbar = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <nav className="w-full bg-gradient-to-r hover:bg-gray-900 transform duration-300 text-white py-3 fixed top-0 inset-x-0 z-50 shadow-md hover:opacity-90">
+    <nav className="w-full  hover:bg-gray-900 transform duration-300 text-white py-3 fixed top-0 inset-x-0 z-50  hover:opacity-90">
       <div className="px-8 mx-auto flex items-center justify-between">
         {/* Logo on the left */}
         <div className="flex items-center">
