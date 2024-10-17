@@ -8,7 +8,7 @@ const Navbar = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <nav className="bg-gray-800 text-white py-3  fixed top-0 inset-x-0 z-50">
+    <nav className="bg-gradient-to-r hover:bg-gray-900 transform duration-300 text-white py-3 fixed top-0 inset-x-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo on the left */}
         <div className="flex items-center">
@@ -37,7 +37,6 @@ const Navbar = () => {
 
         {/* Buttons on the right */}
         <div className="flex items-center space-x-4">
-
           <a
             href="https://github.com/Cosmodocus/lounge-app"
             target="_blank"
@@ -50,7 +49,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-           <HoverBorderGradient>AI Github</HoverBorderGradient>
+            <HoverBorderGradient>AI Github</HoverBorderGradient>
           </a>
           <Link href="/signup">
             <button className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">
