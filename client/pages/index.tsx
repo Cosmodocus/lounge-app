@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 
 const HomePage = () => {
 
-
     return (
         <div>
             <h1>Homepage</h1>
