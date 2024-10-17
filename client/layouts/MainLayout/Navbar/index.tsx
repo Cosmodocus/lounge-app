@@ -8,8 +8,8 @@ const Navbar = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <nav className="bg-gradient-to-r hover:bg-gray-900 transform duration-300 text-white py-3 fixed top-0 inset-x-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className="w-full bg-gradient-to-r hover:bg-gray-900 transform duration-300 text-white py-3 fixed top-0 inset-x-0 z-50 shadow-md hover:opacity-90">
+      <div className="px-8 mx-auto flex items-center justify-between">
         {/* Logo on the left */}
         <div className="flex items-center">
           <h1 className="text-3xl font-bold">
@@ -22,8 +22,8 @@ const Navbar = () => {
           <Menu setActive={setActive}>
             <MenuItem setActive={setActive} active={active} item="Services">
               <div className="flex flex-col space-y-4 text-sm">
-                <HoveredLink href="/web-dev">Code Generation</HoveredLink>
-                <HoveredLink href="/interface-design">Dev Feed</HoveredLink>
+                <HoveredLink href="/chat">Code Generation</HoveredLink>
+                <HoveredLink href="/feed">Dev Feed</HoveredLink>
               </div>
             </MenuItem>
             <MenuItem setActive={setActive} active={active} item="About">

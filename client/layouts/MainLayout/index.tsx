@@ -7,9 +7,9 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen w-full">
             <Navbar />
-            <main className="flex-1  overflow-y-auto">
+            <main className="flex-1 flex items-center justify-center overflow-y-auto ">
                 {children}
             </main>
         </div>
