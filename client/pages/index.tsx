@@ -1,101 +1,50 @@
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import MainLayout from "layouts/MainLayout";
-import { ReactNode, useState } from "react";
-
-// Define the shape of the user object
-interface UserDetails {
-    username: string;
-    fullname: string;
-    email: string;
-    created: string;  // assuming it's a string format of datetime
-}
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const HomePage = () => {
-    const [username, setUsername] = useState("");
-    const [fullname, setFullname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [responseMessage, setResponseMessage] = useState("");
-    const [userDetails, setUserDetails] = useState<UserDetails | null>(null); // Define type for userDetails
-    const [error, setError] = useState("");
-
-    const handleRegister = async () => {
-        try {
-            const response = await fetch("http://localhost:8000/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    username: username,
-                    fullname: fullname,
-                    email: email,
-                    password: password,
-                }),
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.detail || `Error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            setResponseMessage(data.message);  // Store the success message
-            setUserDetails(data.user);  // Store the user details
-
-        } catch (error: any) {
-            setError(error.message);
-        }
-    };
-
-    return (
-        <div>
-            <h1>Register User</h1>
-            <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Full Name"
-                value={fullname}
-                onChange={(e) => setFullname(e.target.value)}
-            />
-            <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleRegister}>Register</button>
-
-            {/* Display response message or error */}
-            {responseMessage && <p>{responseMessage}</p>}
-            {error && <p>Error: {error}</p>}
-
-            {/* Optionally display the user details */}
-            {userDetails && (
-                <div>
-                    <h2>User Details:</h2>
-                    <p>Username: {userDetails.username}</p>
-                    <p>Email: {userDetails.email}</p>
-                    <p>Full Name: {userDetails.fullname}</p>
-                    <p>Created At: {new Date(userDetails.created).toLocaleString()}</p>
-                </div>
-            )}
+  return (
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative flex flex-col gap-8 items-center justify-center px-6 py-12 text-center"
+      >
+        {/* Title */}
+        <div className="text-4xl md:text-9xl font-bold text-white">
+          Lounge
         </div>
-    );
+
+        {/* Tagline */}
+        <div className="font-extralight text-lg md:text-4xl text-neutral-200 ">
+          Streamline your programming workflow with everything you need in one app.
+        </div>
+
+        {/* Description */}
+        <div className="font-light text-base md:text-2xl text-neutral-300 ">
+          Unleash your creativity, access valuable resources, and enhance your problem-solving efficiency with our powerful tools.
+        </div>
+
+        {/* Get Started Button */}
+        <HoverBorderGradient
+          containerClassName="rounded-full mt-6"
+          as="button"
+          className="bg-black text-white text-lg md:text-xl px-6 py-3 flex items-center space-x-2 transition hover:bg-gray-800"
+        >
+          Get Started
+        </HoverBorderGradient>
+      </motion.div>
+    </AuroraBackground>
+  );
 };
 
-HomePage.getLayout = (page: ReactNode) => (
-    <MainLayout>{page}</MainLayout>
-);
+HomePage.getLayout = (page: ReactNode) => <MainLayout>{page}</MainLayout>;
 
 export default HomePage;
